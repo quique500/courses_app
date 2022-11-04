@@ -9,6 +9,8 @@ class Section extends Model
 {
     use HasFactory;
 
+    protected $guarded= ['id'];     // dentro del array se declara en campo que se va a bloquear en la asignacion masiva
+
     /* relacion uno amuchos */
     public function lessons(){
         return $this->hasMany('App/Models/Lesson');

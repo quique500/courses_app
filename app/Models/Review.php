@@ -9,6 +9,8 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $guarded= ['id'];     // dentro del array se declara en campo que se va a bloquear en la asignacion masiva
+
     /* relacion uno amuchos inversa */
     public function user(){
         return $this->belongsTo('App/Model/User');

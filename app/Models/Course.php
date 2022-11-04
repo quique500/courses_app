@@ -9,6 +9,9 @@ class Course extends Model
 {
     use HasFactory;
 
+    protected $guarded= ['id', 'status'];     // dentro del array se declara en campo que se va a bloquear en la asignacion masiva
+
+
     /* SE DEFINEN LAS CONSTANTES PARA POSTERIORMENTE SER USADAS EN LA MIGRACION COURSES CON LO
     VALORES YA DEFINODOS */
     const BORRADOR=1;

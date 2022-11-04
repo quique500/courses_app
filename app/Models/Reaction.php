@@ -9,6 +9,8 @@ class Reaction extends Model
 {
     use HasFactory;
 
+    protected $guarded= ['id'];     // dentro del array se declara en campo que se va a bloquear en la asignacion masiva
+
     const LIKE=1;
     const DISLIKE=2;
 
