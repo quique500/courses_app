@@ -18,35 +18,58 @@ class Course extends Model
 
     /* relacion uno a muchos */
     public function reviews(){
-        return $this->hasMany('App/Models/Review');
+        return $this->hasMany('App\Models\Review');
     }
 
     public function requirements(){
-        return $this->hasMany('App/Models/Requirement');
+        return $this->hasMany('App\Models\Requirement');
+    }
+
+    public function goals(){
+        return $this->hasMany('App\Models\Goal');
+    }
+
+    public function audiences(){
+        return $this->hasMany('App\Models\Audience');
+    }
+
+    public function sections(){
+        return $this->hasMany('App\Models\Section');
     }
 
 
     /* relacion uno a muchos con users */
     /* metodo para recuparar a los docentes */
     public function teacher(){
-        return $this->belongsTo('App/Models/User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function level(){
-        return $this->belongsTo('App/Models/Level');
+        return $this->belongsTo('App\Models\Level');
     }
 
     public function category(){
-        return $this->belongsTo('App/Models/Level');
+        return $this->belongsTo('App\Models\Level');
     }
 
     public function price(){
-        return $this->belongsTo('App/Models/Level');
+        return $this->belongsTo('App\Models\Level');
     }
 
     /* relacion muchos a muchos */
     /* metodo para recuperar a los estudiantes */
     public function students(){
-        return $this->belongsToMany('App/Models/user', 'user_id');
+        return $this->belongsToMany('App\Models\User', 'user_id');
     }
+
+    /* relacion uno a uno polimorfica */
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
+
+
+    public function lessons(){
+        return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Sections');
+    }
+
 }

@@ -10,7 +10,7 @@ class Price extends Model
     use HasFactory;
 
     /* relacion uno a muchos */
-    public function level(){
+    public function courses(){
         return $this->hasMany('App/Models/Course');
     }
 }
