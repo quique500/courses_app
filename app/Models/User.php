@@ -62,31 +62,31 @@ class User extends Authenticatable
 
     //Relacion uno a uno con la migracion prfile
     public function profile(){
-        return $this->hasOne('App/Models/Profile');
+        return $this->hasOne('App\Models\Profile');
     }
 
 
     /* relacion uno amuchos con course */
     /* metodo para recuperar los cirsos dictados */
     public function courses_dictated(){
-        return $this->hasMany('App/Models/Course');
+        return $this->hasMany('App\Models\Course');
     }
 
     public function reviews(){
-        return $this->hasMany('App/Model/Review');
+        return $this->hasMany('App\Models\Review');
     }
 
     public function comments(){
-        return $this->hasMany('App/Model/comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
     public function reactions(){
-        return $this->hasMany('App/Model/Reaction');
+        return $this->hasMany('App\Models\Reaction');
     }
 
     /* relacion muchos a muchos con course */
     public function courses_enrolled(){
-        return $this->belongsToMany('App/Models/Course');
+        return $this->belongsToMany('App\Models\Course');
     }
 
     public function lessons(){
