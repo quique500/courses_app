@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
 
         /* crear carpetas en directorios espesificos */
-        //Storage::deleteDirectory('cursos');
+        Storage::deleteDirectory('cursos');
         Storage::makeDirectory('cursos');   //crear carpeta en storage una vez ejecutados los seeders
 
 
@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LevelSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(PriceSeeder::class);
+        $this->call(PlatformSeeder::class);
         $this->call(CourseSeeder::class);
 
     }
