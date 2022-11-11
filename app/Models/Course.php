@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use JeroenNoten\LaravelAdminLte\View\Components\Form\Select;
 
 class Course extends Model
 {
     use HasFactory;
 
     protected $guarded= ['id', 'status'];     // dentro del array se declara en campo que se va a bloquear en la asignacion masiva
+    protected $withCount= ['students', 'reviews'];     //variable que va acontar los almnos que estan matriculados a los cursos, y las calificaciones de los estuduantes
 
 
     /* SE DEFINEN LAS CONSTANTES PARA POSTERIORMENTE SER USADAS EN LA MIGRACION COURSES CON LO
@@ -18,6 +20,16 @@ class Course extends Model
     const REVISION=2;
     const PUBLICADO=3;
 
+    public function getRatingAttribute(){
+
+        /* condiocionnal para mostrar el promedio de las calificaciones y en caso de que no existan se agrega el valor por default 5 */
+        if ( $this->reviews_count) {
+            return round( $this->reviews->avg('rating'), 1);   //devuelve la coleccion del metodo "reviews" con las calificaciones y el promedio
+        }else{
+            return 5;
+        }
+
+    }
 
     /* relacion uno a muchos */
     public function reviews(){
@@ -62,7 +74,7 @@ class Course extends Model
     /* relacion muchos a muchos */
     /* metodo para recuperar a los estudiantes */
     public function students(){
-        return $this->belongsToMany('App\Models\User', 'user_id');
+        return $this->belongsToMany('App\Models\User');
     }
 
     /* relacion uno a uno polimorfica */
