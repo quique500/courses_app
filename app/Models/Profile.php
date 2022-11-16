@@ -11,7 +11,7 @@ class Profile extends Model
 
     protected $guarded= ['id'];     // dentro del array se declara en campo que se va a bloquear en la asignacion masiva
 
-    /* REALCION UNO A UNO DE FORMA INVERSA CON LA MIGRACION USER */
+    /* REALCION UNO A UNO DE  USER */
     public function user(){
         return $this->belongsTo('App/Models/User');
     }

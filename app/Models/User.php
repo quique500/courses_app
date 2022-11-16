@@ -84,6 +84,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Reaction');
     }
 
+    /* public function teachers(){
+        return $this->hasMany('App\Models\Course');
+    } */
+
     /* relacion muchos a muchos con course */
     public function courses_enrolled(){
         return $this->belongsToMany('App\Models\Course');
@@ -92,6 +96,8 @@ class User extends Authenticatable
     public function lessons(){
         return $this->belongsToMany('App\Models\Lesson');
     }
+
+
 
 }
 

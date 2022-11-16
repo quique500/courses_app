@@ -23,7 +23,7 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        $courses= Course::factory(40)->create();  //genar registros de prueba
+        $courses= Course::factory(100)->create();  //genar registros de prueba
 
         /* una vez generado los datos de prueba se descargan las imagnes y se almacenan en la tabla Image  */
         foreach ($courses as $course) {

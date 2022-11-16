@@ -31,6 +31,13 @@ class Course extends Model
 
     }
 
+    /* retornar el slug de cada curso en la url de los cursos */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
     /* relacion uno a muchos */
     public function reviews(){
         return $this->hasMany('App\Models\Review');
@@ -84,7 +91,7 @@ class Course extends Model
 
 
     public function lessons(){
-        return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Sections');
+        return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
     }
 
 }

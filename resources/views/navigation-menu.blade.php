@@ -8,6 +8,12 @@
             'active'=> request()->routeIs('home')  //metodo para evaluar si se encuentra en la ruta y devielve un true
         ],
 
+        [
+            'name'=>'Cursos',
+            'route'=>route('courses.index'),
+            'active'=>request()->routeIs('courses.index')
+        ],
+
     ];
 @endphp
 

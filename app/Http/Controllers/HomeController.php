@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         /* retorne una coleccion de todos los cursos */
         /* le metodo "lates" sirve para ordenar los cursos por el mas nuevo primero */
-        $courses=Course::where('status', 3)->latest('id')->get();   //mostrar cursos que an sido aprobados
+        $courses=Course::where('status', 3)->latest('id')->get()->take(12);   //mostrar cursos que an sido aprobados
 
         /* return Course::find(1)->rating;      (retorna las calificaciones de cada curso)*/
 
