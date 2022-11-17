@@ -16,6 +16,8 @@
                 </div>
             </div>
         </div>
-
     </section>
+
+    @livewire('course-index')   {{-- //renderizar la vista que esta entre comillas --}}
+
 </x-app-layout>
