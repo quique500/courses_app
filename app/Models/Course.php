@@ -28,8 +28,21 @@ class Course extends Model
         }else{
             return 5;
         }
-
     }
+
+    /* (QUERY SCOPES) PARA HACER PERSONALIZADOS LOS FILTROS DE LOS CURSOS */
+    public function scopeCategory($query, $category_id){
+        if ($category_id) {     //si hay algo almacenado en la variable se realiza la consulta
+            return $query->where('category_id', $category_id);
+        }
+    }
+
+    public function scopeLevel($query, $level_id){
+        if ($level_id) {
+            return $query->where('level_id', $level_id);
+        }
+    }
+
 
     /* retornar el slug de cada curso en la url de los cursos */
     public function getRouteKeyName()
