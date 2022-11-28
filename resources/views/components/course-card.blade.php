@@ -1,10 +1,10 @@
 @props(['course'])      {{-- directiva para hacer referencia la nombre de la variable $course --}}
 
-<article class="bg-white shadow-lg rounded overflow-hidden">
+<article class="card">
     <img class="h-36 w-full object-cover" src="{{ $course->image ? Storaga::url($course->image->url) : 'https://cdn.pixabay.com/photo/2016/12/28/09/36/web-1935737_960_720.png' }}" alt="">
 
-    <div class="px-6 py-4">
-        <h1 class="text-xl text-gray-700 mb-2 leading-6">{{Str::limit($course->title, 40)}}</h1>
+    <div class="card-body">
+        <h1 class="card-title">{{Str::limit($course->title, 40)}}</h1>
         {{-- <p>Prof: {{$course->teacher->name}}</p> --}}
 
 
@@ -33,7 +33,7 @@
             </p>
         </div>
 
-        <a href="{{route('courses.show', $course)}}" class="block text-center w-full mt-4 bg-gray-400 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded ">
+        <a href="{{route('courses.show', $course)}}" class="mt-4 btn btn-primary btn-block">
             Más información...
         </a>
     </div>

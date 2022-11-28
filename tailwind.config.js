@@ -1,3 +1,4 @@
+const { Container } = require('postcss');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
@@ -15,6 +16,11 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+    },
+
+    corePlugins: {
+        // ...
+        container: false,
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
